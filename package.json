@@ -1,0 +1,21 @@
+{
+  "name": "CloudScraper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/tobymurray/CloudScraper.git",
+  "author": "Toby Murray <murray.toby@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^8.0.19",
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "typescript": "^2.4.2"
+  },
+  "scripts": {
+    "clean-tsc": "rm -rf tsc",
+    "clean": "rm -rf build && yarn run clean-tsc",
+    "tsc": "./node_modules/.bin/tsc --outDir tsc",
+    "babel": "./node_modules/.bin/babel tsc --out-dir build/js --source-maps && cp public/* build",
+    "build": "yarn run clean && yarn run tsc && yarn run babel && yarn run clean-tsc"
+  }
+}
